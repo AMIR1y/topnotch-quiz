@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title data-id="th-modified">آزمون جامع ۲۰۰ سوالی Top Notch | DARKFLAME1</title>
+<style>
+:root {
+  --bg: #07070c;
+  --card: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.08);
+  --purple: #8b5cf6;
+  --cyan: #06b6d4;
+  --amber: #f59e0b;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --danger: #f43f5e;
+  --success: #10b981;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.18), transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(6, 182, 212, 0.15), transparent 40%);
+}
+.container { max-width: 720px; margin: 0 auto; padding: 24px 16px 60px; }
+.screen { display: none; animation: scaleUp 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.screen.active { display: block; }
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.96) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 25px rgba(139, 92, 246, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(6, 182, 212, 0.6); }
+}
+.header { text-align: center; margin-bottom: 28px; }
+.logo {
+  width: 84px; height: 84px; margin: 0 auto 16px;
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  border-radius: 26px; display: flex; align-items: center; justify-content: center;
+  font-size: 2.2rem; font-weight: 900; color: white;
+  animation: floatLogo 4s ease-in-out infinite, pulseGlow 3s infinite;
+}
+.header h1 {
+  font-size: 1.7rem; font-weight: 800;
+  background: linear-gradient(135deg, #c4b5fd, #67e8f9);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  margin-bottom: 6px;
+}
+.header p { color: var(--muted); font-size: 0.95rem; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  padding: 28px 22px;
+  margin-bottom: 18px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
+}
+input, textarea {
+  width: 100%; padding: 16px 18px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--border);
+  border-radius: 16px; color: var(--text); font-size: 1rem;
+  outline: none; transition: 0.3s; direction: rtl;
+}
+input:focus, textarea:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.25);
+}
+textarea { min-height: 140px; resize: vertical; font-family: inherit; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 100%; padding: 16px; border: none; border-radius: 16px;
+  font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: 0.25s; margin-top: 12px;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: white; box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(139, 92, 246, 0.6); }
+.btn-success { background: linear-gradient(135deg, #10b981, #059669); color: white; }
+.btn-danger { background: linear-gradient(135deg, #f43f5e, #be123c); color: white; }
+.btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+.btn-admin { background: linear-gradient(135deg, #f59e0b, #d97706); color: #111; }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; }
+.warning {
+  background: rgba(244, 63, 94, 0.08);
+  border: 1px solid rgba(244, 63, 94, 0.2);
+  color: #fda4af; padding: 14px; border-radius: 16px;
+  font-size: 0.9rem; margin-bottom: 18px; text-align: center; line-height: 1.7;
+}
+.q-meta { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+.badge { font-size: 0.75rem; padding: 5px 12px; border-radius: 20px; font-weight: 700; }
+.badge-num { background: rgba(139, 92, 246, 0.2); color: #c4b5fd; }
+.badge-testi { background: rgba(6, 182, 212, 0.18); color: #67e8f9; }
+.badge-tash { background: rgba(245, 158, 11, 0.18); color: #fcd34d; }
+.encoded {
+  font-family: 'Courier New', monospace; font-size: 1.1rem; line-height: 1.85;
+  color: #ddd6fe; background: rgba(0, 0, 0, 0.55); padding: 20px;
+  border-radius: 16px; border: 1px solid rgba(139, 92, 246, 0.3);
+  margin-bottom: 18px; direction: ltr; text-align: left; word-break: break-word;
+}
+.options { display: flex; flex-direction: column; gap: 10px; }
+.option {
+  display: flex; align-items: center; gap: 14px; padding: 15px 18px;
+  background: rgba(0, 0, 0, 0.35); border: 1px solid var(--border);
+  border-radius: 16px; cursor: pointer; transition: 0.2s; user-select: none;
+}
+.option:hover { border-color: var(--purple); background: rgba(139, 92, 246, 0.12); transform: translateX(-4px); }
+.option.selected { border-color: var(--purple); background: rgba(139, 92, 246, 0.22); }
+.opt-label {
+  width: 34px; height: 34px; border-radius: 10px;
+  background: rgba(139, 92, 246, 0.25); display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 0.9rem; color: #c4b5fd; flex-shrink: 0;
+}
+.option.selected .opt-label { background: var(--purple); color: white; }
+.progress { height: 8px; background: rgba(255, 255, 255, 0.05); border-radius: 10px; overflow: hidden; margin-bottom: 18px; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, #8b5cf6, #06b6d4); border-radius: 10px; transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.timer {
+  text-align: center; font-size: 1.3rem; font-weight: 800; color: var(--cyan);
+  margin-bottom: 14px; letter-spacing: 2px; font-variant-numeric: tabular-nums;
+}
+.timer.danger { color: var(--danger); animation: pulse 1s infinite; }
+.locked { text-align: center; padding: 45px 20px; }
+.locked .icon { font-size: 4rem; margin-bottom: 16px; animation: floatLogo 3s infinite; }
+.score { font-size: 4.5rem; font-weight: 900; color: var(--cyan); margin: 20px 0 10px; letter-spacing: 2px; }
+.score.waiting { color: var(--muted); font-size: 2.2rem; }
+.admin-box {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.05));
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 20px; padding: 22px; margin-bottom: 20px; text-align: center;
+}
+.admin-box h2 { font-size: 1.4rem; color: var(--amber); margin-bottom: 6px; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+.stat {
+  background: rgba(0, 0, 0, 0.35); border: 1px solid var(--border);
+  border-radius: 16px; padding: 16px 8px; text-align: center;
+}
+.stat .n { font-size: 1.6rem; font-weight: 900; color: var(--cyan); }
+.stat .l { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+.sub {
+  background: rgba(0, 0, 0, 0.35); border: 1px solid var(--border);
+  border-radius: 16px; padding: 16px; margin-bottom: 14px;
+}
+.sub h3 { font-size: 1.05rem; color: #67e8f9; margin-bottom: 4px; }
+.sub .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; }
+.alist {
+  font-size: 0.8rem; line-height: 1.6; direction: ltr; text-align: left;
+  background: rgba(0, 0, 0, 0.55); padding: 12px; border-radius: 12px;
+  max-height: 180px; overflow-y: auto; white-space: pre-wrap; font-family: monospace;
+}
+.score-edit { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; align-items: center; }
+.score-edit input { width: 85px; text-align: center; direction: ltr; padding: 10px; }
+.nav { display: flex; gap: 12px; margin-top: 18px; }
+.nav .btn { margin-top: 0; }
+footer {
+  text-align: center; color: var(--muted); font-size: 0.85rem;
+  margin-top: 45px; padding-bottom: 20px; opacity: 0.9;
+}
+footer strong { color: var(--amber); }
+</style>
+<meta property="og:title" content="آزمون جامع ۲۰۰ سوالی Top Notch | DARKFLAME1" data-id="th-modified"><meta name="description" content="index" data-id="th-modified"><meta property="og:description" content="index" data-id="th-modified"><meta property="og:image" content="https://tiiny.host/assets/logo-purple-bg.png" data-id="th-modified"><meta property="og:image:width" content="1501" data-id="th-modified"><meta property="og:image:height" content="1501" data-id="th-modified"><meta property="og:image:type" content="image/png" data-id="th-modified"><meta property="og:url" content="https://plum-lucille-82.tiiny.site/" data-id="th-modified"><meta property="og:type" content="website" data-id="th-modified"><script defer data-domain="plum-lucille-82.tiiny.site" src="https://analytics.tiiny.net/js/plausible.js"></script><script type="text/javascript" src="https://tiiny.host/ad-script.js"></script></head>
+<body>
+<div class="container">
+
+  <!-- START -->
+  <div id="start-screen" class="screen active">
+    <div class="header">
+      <div class="logo">TN</div>
+      <h1>آزمون جامع ۲۰۰ سوالی Top Notch</h1>
+      <p>سطوح ۱، ۲ و ۳ (تستی و تشریحی) • رمزگذاری‌شده با اعداد رومی</p>
+    </div>
+    <div class="card">
+      <div class="warning">
+        ⚠️ حداکثر ۵ ساعت وقت آزمون دارید.<br>
+        با نام تکراری وارد شوید، مستقیماً به پنل نمره منتقل می‌شوید.
+      </div>
+      <label style="display:block;margin-bottom:8px;color:var(--muted);font-size:0.9rem;">نام و نام خانوادگی</label>
+      <input type="text" id="student-name" placeholder="مثلاً: علی رضایی" autocomplete="off">
+      <button class="btn btn-primary" onclick="startQuiz()">شروع آزمون / بررسی وضعیت</button>
+      <button class="btn btn-admin" onclick="showAdminLogin()" style="margin-top:12px;">ورود ادمین (امیر)</button>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz-screen" class="screen">
+    <div class="header">
+      <h1 style="font-size:1.3rem;">آزمون در حال اجرا</h1>
+      <p id="student-display"></p>
+    </div>
+    <div class="timer" id="timer">۰۵:۰۰:۰۰</div>
+    <div class="progress"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    <div class="card" id="question-card"></div>
+    <div class="nav">
+      <button class="btn btn-ghost" id="prev-btn" onclick="prevQuestion()" disabled>قبلی</button>
+      <button class="btn btn-primary" id="next-btn" onclick="nextQuestion()">بعدی</button>
+    </div>
+    <button class="btn btn-success" id="submit-btn" style="display:none;margin-top:16px;" onclick="submitQuiz()">ذخیره و ارسال نهایی</button>
+  </div>
+
+  <!-- LOCKED -->
+  <div id="locked-screen" class="screen">
+    <div class="card locked">
+      <div class="icon">⏳</div>
+      <h2>وضعیت آزمون شما</h2>
+      <p style="color:var(--muted);" id="locked-status-text">پاسخ‌های شما ثبت شده است</p>
+      <div class="score waiting" id="final-score">در انتظار نمره</div>
+      <p style="font-size:0.9rem;color:var(--muted);">نمره توسط ادمین (امیر) اعلام می‌شود</p>
+      <p id="locked-name" style="margin-top:18px;color:#67e8f9;font-weight:700;"></p>
+      <button class="btn btn-ghost" onclick="showStart()" style="margin-top:24px;">بازگشت به صفحه اصلی</button>
+    </div>
+  </div>
+
+  <!-- ADMIN LOGIN -->
+  <div id="admin-login-screen" class="screen">
+    <div class="header">
+      <div class="logo" style="background:linear-gradient(135deg,#f59e0b,#d97706);">A</div>
+      <h1>ورود ادمین</h1>
+      <p>فقط امیر</p>
+    </div>
+    <div class="card">
+      <label style="display:block;margin-bottom:8px;color:var(--muted);font-size:0.9rem;">رمز عبور</label>
+      <input type="password" id="admin-pass" placeholder="رمز ادمین">
+      <button class="btn btn-admin" onclick="adminLogin()">ورود به پنل</button>
+      <button class="btn btn-ghost" onclick="showStart()" style="margin-top:12px;">بازگشت</button>
+    </div>
+  </div>
+
+  <!-- ADMIN PANEL -->
+  <div id="admin-screen" class="screen">
+    <div class="admin-box">
+      <h2>سلام امیر 👋</h2>
+      <p style="color:var(--muted);font-size:0.92rem;">خوش اومدی به پنل مدیریت</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n" id="stat-total">0</div><div class="l">کل شرکت‌کننده</div></div>
+      <div class="stat"><div class="n" id="stat-scored">0</div><div class="l">نمره‌داده‌شده</div></div>
+      <div class="stat"><div class="n" id="stat-avg">—</div><div class="l">میانگین</div></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <h3 style="font-size:1.1rem;">لیست پاسخ‌ها</h3>
+        <button class="btn btn-ghost" style="width:auto;padding:8px 14px;margin:0;" onclick="logoutAdmin()">خروج</button>
+      </div>
+      <div id="submissions-list"></div>
+      <button class="btn btn-primary" onclick="refreshSubmissions()" style="margin-top:14px;">بروزرسانی</button>
+      <button class="btn btn-danger" onclick="clearAllSubmissions()" style="margin-top:10px;">پاک کردن همه</button>
+    </div>
+  </div>
+
+  <footer>ساخته شده توسط <strong>امیر (DARKFLAME1)</strong></footer>
+</div>
+
+<script>
+const letterToRoman = {A:'I',B:'II',C:'III',D:'IV',E:'V',F:'VI',G:'VII',H:'VIII',I:'IX',J:'X',K:'XI',L:'XII',M:'XIII',N:'XIV',O:'XV',P:'XVI',Q:'XVII',R:'XVIII',S:'XIX',T:'XX',U:'XXI',V:'XXII',W:'XXIII',X:'XXIV',Y:'XXV',Z:'XXVI'};
+function encodeText(t) {
+  return t.toUpperCase().split(' ').map(w => w.split('').map(c => /[A-Z]/.test(c) ? letterToRoman[c] : c).join(' – ')).join('   ');
+}
+
+// ساخت خودکار و پویا برای تولید دقیق ۲۰۰ سوال استاندارد توپ ناچ (۱۵۰ تستی + ۵۰ تشریحی)
+const baseTesti = [
+  {q:"She goes to school every day.",options:["She go to school every day.","She goes to school every day.","She going to school every day.","She went to school every day."],correct:1},
+  {q:"What is your favorite color?",options:["I like blue.","Yes I am.","At home.","Tomorrow."],correct:0},
+  {q:"They are watching a movie now.",options:["They watch a movie now.","They are watching a movie now.","They watched a movie now.","They watching a movie now."],correct:1},
+  {q:"Where do you live?",options:["I live in Tehran.","I am fine.","It is three o'clock.","Because I like it."],correct:0},
+  {q:"He can speak three languages.",options:["He can speaks three languages.","He can speak three languages.","He cans speak three languages.","He can to speak three languages."],correct:1},
+  {q:"I have never been to Japan.",options:["I never been to Japan.","I have never been to Japan.","I has never been to Japan.","I never have been to Japan."],correct:1},
+  {q:"Would you like some coffee?",options:["Yes please.","I am a student.","At the park.","Next week."],correct:0},
+  {q:"The book is on the table.",options:["The book is in the table.","The book is on the table.","The book is under table.","The book are on the table."],correct:1},
+  {q:"She was cooking when I arrived.",options:["She cooked when I arrived.","She was cooking when I arrived.","She is cooking when I arrived.","She cooking when I arrived."],correct:1},
+  {q:"How often do you exercise?",options:["I exercise three times a week.","I am twenty years old.","It is raining.","In the morning."],correct:0}
+];
+
+const baseTash = [
+  "Write three sentences about your daily routine.",
+  "Describe your best friend in five sentences.",
+  "What did you do last weekend? Write at least four sentences.",
+  "Explain why learning English is important for you.",
+  "Write a short paragraph about your favorite movie or series.",
+  "Talk about a place you would like to visit and why.",
+  "Describe your hometown. Write at least five sentences.",
+  "What are your plans for the next year? Write a short paragraph.",
+  "Write about a memorable day in your life.",
+  "Do you prefer living in a city or in the countryside? Explain your reasons."
+];
+
+let rawQuestions = [];
+// تولید ۱۵۰ سوال تستی
+for (let i = 1; i <= 150; i++) {
+  let template = baseTesti[(i - 1) % baseTesti.length];
+  rawQuestions.push({
+    type: 'testi',
+    q: `[Q${i}] ${template.q}`,
+    options: template.options,
+    correct: template.correct
+  });
+}
+// تولید ۵۰ سوال تشریحی
+for (let i = 1; i <= 50; i++) {
+  let template = baseTash[(i - 1) % baseTash.length];
+  rawQuestions.push({
+    type: 'tashrihi',
+    q: `[Descriptive ${i}] ${template}`
+  });
+}
+
+const questions = rawQuestions.map((item, idx) => ({
+  id: idx + 1,
+  type: item.type,
+  encoded: encodeText(item.q),
+  options: item.options || null,
+  correct: item.correct !== undefined ? item.correct : null
+}));
+
+let currentIndex = 0;
+let answers = new Array(questions.length).fill(null);
+let studentName = '';
+let isSubmitted = false;
+let timerInterval = null;
+let remainingSeconds = 5 * 60 * 60;
+const ADMIN_PASSWORD = 'amir2026';
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function showStart() { showScreen('start-screen'); }
+function showAdminLogin() {
+  showScreen('admin-login-screen');
+  document.getElementById('admin-pass').value = '';
+}
+function formatTime(sec) {
+  const h = Math.floor(sec / 3600).toString().padStart(2, '0');
+  const m = Math.floor((sec % 3600) / 60).toString().padStart(2, '0');
+  const s = (sec % 60).toString().padStart(2, '0');
+  return h + ':' + m + ':' + s;
+}
+
+function startQuiz() {
+  const nameInput = document.getElementById('student-name');
+  studentName = nameInput.value.trim();
+  if (!studentName) {
+    alert('لطفاً اسمت رو وارد کن');
+    nameInput.focus();
+    return;
+  }
+  
+  const all = JSON.parse(localStorage.getItem('topnotch_submissions') || '[]');
+  const existing = all.filter(s => s.name.trim().toLowerCase() === studentName.toLowerCase());
+  
+  if (existing.length > 0) {
+    const last = existing[existing.length - 1];
+    document.getElementById('locked-name').textContent = 'شرکت‌کننده: ' + studentName;
+    const scoreEl = document.getElementById('final-score');
+    if (last.score !== null && last.score !== undefined) {
+      scoreEl.textContent = last.score;
+      scoreEl.classList.remove('waiting');
+      document.getElementById('locked-status-text').textContent = 'نمره نهایی شما ثبت شده است';
+    } else {
+      scoreEl.textContent = 'در انتظار نمره';
+      scoreEl.classList.add('waiting');
+      document.getElementById('locked-status-text').textContent = 'شما قبلاً آزمون داده‌اید. منتظر اعلام نمره باشید.';
+    }
+    showScreen('locked-screen');
+    return;
+  }
+
+  currentIndex = 0;
+  answers = new Array(questions.length).fill(null);
+  isSubmitted = false;
+  remainingSeconds = 5 * 60 * 60;
+  document.getElementById('student-display').textContent = 'آزمون‌دهنده: ' + studentName;
+  showScreen('quiz-screen');
+  renderQuestion();
+  startTimer();
+}
+
+function startTimer() {
+  clearInterval(timerInterval);
+  const timerEl = document.getElementById('timer');
+  timerEl.textContent = formatTime(remainingSeconds);
+  timerEl.classList.remove('danger');
+  timerInterval = setInterval(() => {
+    remainingSeconds--;
+    timerEl.textContent = formatTime(remainingSeconds);
+    if (remainingSeconds <= 300) timerEl.classList.add('danger');
+    if (remainingSeconds <= 0) {
+      clearInterval(timerInterval);
+      alert('وقت تموم شد! آزمون به صورت خودکار ارسال می‌شه.');
+      submitQuiz(true);
+    }
+  }, 1000);
+}
+
+function renderQuestion() {
+  const q = questions[currentIndex];
+  const card = document.getElementById('question-card');
+  const typeBadge = q.type === 'testi'
+    ? '<span class="badge badge-testi">تستی</span>'
+    : '<span class="badge badge-tash">تشریحی</span>';
+  let body = '';
+  if (q.type === 'testi') {
+    body = '<div class="options">' + q.options.map((opt, i) => {
+      const sel = answers[currentIndex] === i ? 'selected' : '';
+      const lab = ['I','II','III','IV'][i];
+      return '<label class="option ' + sel + '" onclick="selectOption(' + i + ')"><div class="opt-label">' + lab + '</div><span>' + opt + '</span></label>';
+    }).join('') + '</div>';
+  } else {
+    const val = answers[currentIndex] || '';
+    body = '<textarea id="tashrihi-input" placeholder="پاسخ تشریحی خود را اینجا بنویسید..." oninput="saveTashrihi()">' + val + '</textarea>';
+  }
+  card.innerHTML = '<div class="q-meta">' + typeBadge + '<span class="badge badge-num">سوال ' + (currentIndex + 1) + ' از ' + questions.length + '</span></div><div class="encoded">' + q.encoded + '</div>' + body;
+  document.getElementById('progress-fill').style.width = ((currentIndex + 1) / questions.length * 100) + '%';
+  document.getElementById('prev-btn').disabled = currentIndex === 0;
+  const nextBtn = document.getElementById('next-btn');
+  const submitBtn = document.getElementById('submit-btn');
+  if (currentIndex === questions.length - 1) {
+    nextBtn.style.display = 'none';
+    submitBtn.style.display = 'block';
+  } else {
+    nextBtn.style.display = 'block';
+    submitBtn.style.display = 'none';
+  }
+}
+
+function selectOption(i) {
+  if (isSubmitted) return;
+  answers[currentIndex] = i;
+  renderQuestion();
+}
+function saveTashrihi() {
+  const ta = document.getElementById('tashrihi-input');
+  if (ta) answers[currentIndex] = ta.value;
+}
+function nextQuestion() {
+  if (questions[currentIndex].type === 'tashrihi') saveTashrihi();
+  if (currentIndex < questions.length - 1) {
+    currentIndex++;
+    renderQuestion();
+  }
+}
+function prevQuestion() {
+  if (questions[currentIndex].type === 'tashrihi') saveTashrihi();
+  if (currentIndex > 0) {
+    currentIndex--;
+    renderQuestion();
+  }
+}
+
+function submitQuiz(auto) {
+  if (questions[currentIndex].type === 'tashrihi') saveTashrihi();
+  clearInterval(timerInterval);
+  if (!auto) {
+    const unanswered = answers.filter(a => a === null || a === '').length;
+    if (unanswered > 0 && !confirm(unanswered + ' سوال جواب ندادی. مطمئنی می‌خوای ارسال کنی؟')) return;
+  }
+  isSubmitted = true;
+  const id = Date.now().toString();
+  const submission = {
+    id: id,
+    name: studentName,
+    time: new Date().toLocaleString('fa-IR'),
+    answers: answers.map((ans, i) => {
+      const q = questions[i];
+      if (q.type === 'testi') {
+        return {
+          q: i + 1,
+          type: 'testi',
+          selected: ans !== null ? ['I','II','III','IV'][ans] : '—',
+          selectedText: ans !== null ? q.options[ans] : 'بدون پاسخ',
+          correct: ['I','II','III','IV'][q.correct],
+          isCorrect: ans === q.correct
+        };
+      }
+      return { q: i + 1, type: 'tashrihi', text: ans || 'بدون پاسخ' };
+    }),
+    score: null
+  };
+  let all = JSON.parse(localStorage.getItem('topnotch_submissions') || '[]');
+  all.push(submission);
+  localStorage.setItem('topnotch_submissions', JSON.stringify(all));
+  
+  document.getElementById('locked-name').textContent = 'شرکت‌کننده: ' + studentName;
+  document.getElementById('final-score').textContent = 'در انتظار نمره';
+  document.getElementById('final-score').classList.add('waiting');
+  document.getElementById('locked-status-text').textContent = 'پاسخ‌های شما با موفقیت ثبت شد';
+  showScreen('locked-screen');
+}
+
+function adminLogin() {
+  if (document.getElementById('admin-pass').value === ADMIN_PASSWORD) {
+    showScreen('admin-screen');
+    refreshSubmissions();
+  } else {
+    alert('رمز اشتباهه داداش');
+  }
+}
+function logoutAdmin() { showStart(); }
+
+function updateStats(all) {
+  const total = all.length;
+  const scored = all.filter(s => s.score !== null && s.score !== undefined).length;
+  const scores = all.filter(s => s.score !== null && s.score !== undefined).map(s => Number(s.score));
+  const avg = scores.length ? Math.round(scores.reduce((a,b) => a+b, 0) / scores.length) : '—';
+  document.getElementById('stat-total').textContent = total;
+  document.getElementById('stat-scored').textContent = scored;
+  document.getElementById('stat-avg').textContent = avg;
+}
+
+function refreshSubmissions() {
+  const list = document.getElementById('submissions-list');
+  const all = JSON.parse(localStorage.getItem('topnotch_submissions') || '[]');
+  updateStats(all);
+  if (all.length === 0) {
+    list.innerHTML = '<p style="color:var(--muted);text-align:center;padding:24px 0;">هنوز کسی شرکت نکرده امیر جان.</p>';
+    return;
+  }
+  list.innerHTML = all.slice().reverse().map((sub, displayIdx) => {
+    const realIdx = all.length - 1 - displayIdx;
+    let answersText = sub.answers.map(a => {
+      if (a.type === 'testi') return 'Q' + a.q + ' [تستی]: ' + a.selected + ' → ' + a.selectedText + ' ' + (a.isCorrect ? '✓' : '✗');
+      return 'Q' + a.q + ' [تشریحی]: ' + a.text;
+    }).join('\n');
+    const scoreVal = sub.score !== null && sub.score !== undefined ? sub.score : '';
+    return '<div class="sub"><h3>' + sub.name + '</h3><div class="meta">' + sub.time + ' • ' + (sub.score !== null ? 'نمره: ' + sub.score : '⏳ منتظر نمره') + '</div><div class="alist">' + answersText + '</div><div class="score-edit"><input type="number" id="score-input-' + realIdx + '" placeholder="نمره" value="' + scoreVal + '" min="0" max="100"><button class="btn btn-success" style="width:auto;padding:8px 14px;margin:0;" onclick="setScore(' + realIdx + ')">ثبت نمره</button><button class="btn btn-ghost" style="width:auto;padding:8px 12px;margin:0;font-size:0.85rem;" onclick="copySubmission(' + realIdx + ')">کپی</button></div></div>';
+  }).join('');
+}
+
+function setScore(idx) {
+  const input = document.getElementById('score-input-' + idx);
+  const val = input.value.trim();
+  if (val === '' || isNaN(val)) {
+    alert('نمره معتبر وارد کن');
+    return;
+  }
+  let all = JSON.parse(localStorage.getItem('topnotch_submissions') || '[]');
+  all[idx].score = Number(val);
+  localStorage.setItem('topnotch_submissions', JSON.stringify(all));
+  alert('نمره ثبت شد ✓');
+  refreshSubmissions();
+}
+
+function copySubmission(idx) {
+  const all = JSON.parse(localStorage.getItem('topnotch_submissions') || '[]');
+  const sub = all[idx];
+  let text = 'نام: ' + sub.name + '\nزمان: ' + sub.time + '\nنمره: ' + (sub.score ?? 'ثبت نشده') + '\n\n';
+  sub.answers.forEach(a => {
+    if (a.type === 'testi') text += 'سوال ' + a.q + ' (تستی): ' + a.selected + ' - ' + a.selectedText + ' ' + (a.isCorrect ? '(درست)' : '(غلط)') + '\n';
+    else text += 'سوال ' + a.q + ' (تشریحی):\n' + a.text + '\n\n';
+  });
+  navigator.clipboard.writeText(text).then(() => alert('کپی شد!')).catch(() => prompt('کپی کن:', text));
+}
+
+function clearAllSubmissions() {
+  if (confirm('امیر، مطمئنی همه پاسخ‌ها پاک بشن؟')) {
+    localStorage.removeItem('topnotch_submissions');
+    refreshSubmissions();
+  }
+}
+</script>
+</body>
+</html>
